@@ -1,5 +1,5 @@
 body{
-    background-image: url('/static/patterns/furley_bg/furley_bg.png');
+    background-image: url('../images/furley_bg.png');
 }
 
 .panel-heading:hover{
