@@ -1,4 +1,19 @@
+function togglePaymentPeriod() {
+    var payment_period = $("#Payment-Period").val()
+    if (payment_period == "day") {
+        $(".slider-container-monthly").css("display", "none")
+        $(".slider-container-daily").css("display", "display")
+    } else {
+        $(".slider-container-monthly").css("display", "display")
+        $(".slider-container-daily").css("display", "none")
+    }   
+}
 function setupSliders() {
+    $("#Payment-Period").change(function() {
+        togglePaymentPeriod();
+        updateCalculations();
+    });
+
     $("#wage-slider-monthly").ionRangeSlider({
         grid: true,
         min: 0,
@@ -185,24 +200,17 @@ function updatePercentage(monthly_cost) {
     if (!monthly_cost) return;
 
     var monthly_income = default_day_rate;
-    //var period_income = parseInt($("#Budget").val());
     var payment_period = $("#Payment-Period").val()
-
-    //var period_rate = isNaN(period_income) ? default_day_rate : period_income;
 
     if (payment_period == "day") {
         var period_rate = $("#wage-slider-daily").data().from;
         monthly_income =  period_rate * days_per_month;
-
-        $("#wage-slider-monthly").css("display", "none !important")
-        $("#wage-slider-daily").css("display", "block !important")
     } else {
         var period_rate = $("#wage-slider-monthly").data().from;
         monthly_income = period_rate;
-
-        $("#wage-slider-monthly").css("display", "block !important")
-        $("#wage-slider-daily").css("display", "none !important")
     }   
+
+    togglePaymentPeriod();
 
     var perc = monthly_income / monthly_cost;
 
@@ -258,4 +266,5 @@ $("#Budget").change(function(e) {
 
 $(function() {
     setupSliders();
+    updateCalculations();
 });
