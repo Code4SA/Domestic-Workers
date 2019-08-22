@@ -1,4 +1,4 @@
-// test
+// test1
 function setupSliders() {
     $("#wage-slider-monthly").ionRangeSlider({
         grid: true,
