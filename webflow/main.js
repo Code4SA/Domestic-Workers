@@ -228,7 +228,7 @@ function updateCalculations(data) {
     var household_size = $("#household-size").data().from;
     var food_cost = $("#food-cost").data().from * household_size;
     var transport_coefficient = $("#Trip-type-2").val() == "one way" ? 1 : 2;
-    var transport = $("#transport-cost").data().from * transport_coefficient;
+    var transport = $("#transport-cost").data().from * transport_coefficient * days_per_month;
 
     var household = $("#housing-cost").data().from;
     var utilities = $("#utilities-cost").data().from;
