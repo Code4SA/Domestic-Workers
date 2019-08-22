@@ -8,6 +8,7 @@ function togglePaymentPeriod() {
         $(".slider-container-daily").css("display", "none")
     }   
 }
+
 function setupSliders() {
     $("#Payment-Period").change(function() {
         togglePaymentPeriod();
