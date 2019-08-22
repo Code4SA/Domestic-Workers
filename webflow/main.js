@@ -15,6 +15,13 @@ function setupSliders() {
         updateCalculations();
     });
 
+    $(".button").click(function() {
+        togglePaymentPeriod();
+        // Need to wait for the sliders to appear before recalculating
+        setTimeout(updateCalculations, 500);
+        updateCalculations();
+    });
+
     $("#wage-slider-monthly").ionRangeSlider({
         grid: true,
         min: 0,
