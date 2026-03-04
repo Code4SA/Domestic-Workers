@@ -31,23 +31,13 @@
   <![endif]-->
 </head>
 <body>
-  <div id="fb-root"></div>
-  <script>
-  (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
   <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse"
         data-target="#story-navbar-collapse"><span class="sr-only">Toggle
         navigation</span></button> <a href="http://www.openup.org.za" class=
-        "navbar-brand"><img height="34" src="images/logo.svg" style=
+        "navbar-brand"><img height="34" src="images/openup-logo.png" style=
         "margin-top:-5px"></a>
       </div>
       <div class="collapse navbar-collapse" id="story-navbar-collapse">
@@ -138,23 +128,13 @@
           "label">0%</span> of the household's minimal need of
           <strong><span id="output-monthly-need">R0</span></strong>.</p>
           <div class="text-center">
-            <div class="social-media-buttons">
-              <div id="tweetBtn">
-                <a href="https://twitter.com/share" class=
-                "twitter-share-button" data-count="horizontal" data-text=
-                "Check if you pay your domestic worker a fair wage" data-via=
-                "code4sa" data-hashtags="livingwage" datasize=
-                "large">Tweet</a> 
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-                </script>
-              </div>
-            </div>
-            <div class="social-media-buttons">
-              <div id="facebookBtn">
-                <div class="fb-like" data-href="http://www.living-wage.co.za"
-                data-layout="button_count" data-action="like" data-show-faces=
-                "true" data-share="true"></div>
+            <div class="well well-sm" style="display: inline-block;">
+              <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                <a class="a2a_button_facebook"></a>
+                <a class="a2a_button_x"></a>
+                <a class="a2a_button_whatsapp"></a>
+                <a class="a2a_button_email"></a>
               </div>
             </div>
           </div>
@@ -203,19 +183,13 @@
                     "lead question">Including your domestic worker,
                     <strong>how large is their household</strong>?</label><br>
                     <input id="household-size" class="slider" tooltip="always"
-                    type="text" name="household-size" data-slider-min="1"
-                    data-slider-max="20" data-slider-step="1" value="3"
-                    data-slider-value="3" data-slider-formater="people"><br>
+                    type="text" name="household-size"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">75% of domestic workers are the sole income
-              providers for their families. Furthermore, domestic workers’
-              wages are often used to support, in addition to their nuclear
-              families, parents, grandparents, siblings and other
-              relatives.</p>
-              <p class="sources"><strong>Source:</strong> NIDS 2012</p>
             </div>
           </div>
         </div>
@@ -239,19 +213,13 @@
                     estimate are the daily <strong>food costs</strong> per
                     person in your domestic worker's household?</label><br>
                     <input id="food-cost" class="slider" enabled="false" type=
-                    "text" name="food-cost" data-slider-min="5"
-                    data-slider-max="100" data-slider-step="1" value="27"
-                    data-slider-value="27" data-slider-formater="rand"><br>
+                    "text" name="food-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">According to the May 2019 Household
-              Affordability Index, the cost of feeding a family of four a
-              basic nutritious diet per month is R2,474; it costs a family of
-              five R3,123, 10; and a family of seven, R4,325.
-              <strong>Source:</strong> May 2019 Household Affordability
-              Index,</p>
             </div>
           </div>
         </div>
@@ -276,9 +244,9 @@
                     does it cost your domestic worker to <strong>commute to
                     work</strong>?</label><br>
                     <input id="transport-cost" class="slider" enabled="false"
-                    type="text" name="transport-cost" data-slider-min="5"
-                    data-slider-max="50" data-slider-step="1" value="14"
-                    data-slider-value="25" data-slider-formater="rand"><br>
+                    type="text" name="transport-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                   <div class="form-group">
                     <label for="transport-direction" class="lead question">Is
@@ -297,14 +265,6 @@
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Transport costs are known to be high for
-              domestic workers. The May 2019 Household Affordability Index
-              estimates that in a month public transport adds up to R1092 if a
-              person uses two taxis daily. This is based on transport prices
-              in Pietermaritzburg; the costs in larger cities like
-              Johannesburg and Cape Town are probably much higher.</p>
-              <p class="sources"><strong>Source:</strong> May 2019 Household
-              Affordability Index</p>
             </div>
           </div>
         </div>
@@ -326,28 +286,13 @@
                   <div class="form-group">
                     <label for="rent-cost" class="lead question">How does your domestic worker spend on rent every month?</label><br>
                     <input id="rent-cost" class="slider" enabled="false" type=
-                    "text" name="rent-cost" data-slider-min="0"
-                    data-slider-max="1500" data-slider-step="100" value="1000"
-                    data-slider-value="1000" data-slider-formater="rand"><br>
+                    "text" name="rent-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Domestic workers have different accommodation
-              arrangements. Some domestic workers live in staff accommodation
-              on employers’ properties on the rooftop or basements of
-              apartment blocks, as an employment benefit, and many domestic
-              workers rent accommodation in inner-city buildings in major
-              cities or in backyard accommodation in townships and villages.
-              It is important to note that by law, it is <a href=
-              "http://www.labour.gov.za/DOL/downloads/legislation/sectoral-determinations/basic-conditions-of-employment/Sectoral%20Determination%207%20-%20Domestic%20Workers.pdf">
-              unlawful for employers to deduct more than 10% of a domestic
-              worker’s wages for a room or other accommodation.</a></p>
-              <p class="note">The Socio-Economic Rights Institute estimates
-              that the cheapest accommodation available on the private housing
-              market in Johannesburg costs R1000 per month in rent (excluding
-              services) for a standard room without a bathroom or toilet.</p>
-              <p class="sources"><strong>Source:</strong> SERI report on the availability of accommodation in the inner-city of Johannesburg.(upcoming)</p>
             </div>
           </div>
         </div>
@@ -372,23 +317,13 @@
                   <div class="form-group">
                     <label for="utilities-cost" class="lead question">How much is your domestic worker paying for utilities such as water and electricity</label><br>
                     <input id="utilities-cost" class="slider" enabled="false"
-                        type="text" name="utilities-cost"
-                        data-slider-min="0"
-                        data-slider-max="1500"
-                        data-slider-step="50"
-                        value="600"
-                        data-slider-value="600"
-                        data-slider-formater="rand">
-                    <br>
+                    type="text" name="utilities-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">According the May 2019 Household Affordability
-              Index, it costs a household of four, R529 for 350 kWh of prepaid
-              electricity and R120 for water (a flat rate for unmetered
-              households).</p>
-              <p class="sources"><strong>Source:</strong> May 2019 Household Affordability Index</p>
             </div>
           </div>
         </div>
@@ -412,35 +347,15 @@
                     reasonable monthly allowance for
                     <strong>healthcare</strong> needs?</label><br>
                     <p>Estimate a reasonable monthly health allowance (per
-                    person):</p><input id="health-cost" class="slider"
-                    enabled="false" type="text" name="health-cost"
-                    data-slider-min="0" data-slider-max="300"
-                    data-slider-step="10" value="40" data-slider-value="40"
-                    data-slider-formater="rand"><br>
+                    person):</p>
+                    <input id="health-cost" class="slider" enabled="false"
+                    type="text" name="health-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Setting up a health budget for a family is very
-              important. In South Africa, according to StatsSA, as many as 45
-              million South Africans <a href=
-              "http://www.statssa.gov.za/?p=10548">fall outside the medical
-              aid net</a> and are largely dependent on public healthcare.
-              Public consultancies cost R39 per visit and for medicines.
-              Healthcare costs could also be covered through health insurance
-              which can cost <a href=
-              "http://www.southafrica.info/services/health/healthfaq.htm">at
-              least R299 per month per person.</a></p>
-              <p class="sources"><strong>Sources:</strong><br>
-              <a href=
-              "http://www.southafrica.info/services/health/healthfaq.htm"
-              target=
-              "_blank">http://www.southafrica.info/services/health/healthfaq.htm</a><br>
-
-              <a href=
-              "http://www.medicalaid.co.za/MedicalAid/MedicalAidfortheLowIncomeEarner.aspx"
-              target=
-              "_blank">http://www.medicalaid.co.za/MedicalAid/MedicalAidfortheLowIncomeEarner.aspx</a></p>
             </div>
           </div>
         </div>
@@ -460,29 +375,17 @@
                 <div class="col-sm-9">
                   <div class="form-group">
                     <label for="hygiene-cost" class="lead question">How much
-                    does your domestic workers’ household spend on household
+                    does your domestic workers' household spend on household
                     and personal hygiene products each month?</label><br>
                     <p>Estimate a reasonable monthly allowance (per household):</p>
-                    <input id="hygiene-cost" class="slider"
-                        enabled="false" type="text" name="hygiene-cost"
-                        data-slider-min="0"
-                        data-slider-max="2000"
-                        data-slider-step="50"
-                        value="650"
-                        data-slider-value="650"
-                        data-slider-formater="rand">
-                    <br>
+                    <input id="hygiene-cost" class="slider" enabled="false"
+                    type="text" name="hygiene-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Domestic and personal hygiene products are
-              essential for safe food preparation and overall household
-              health. These include products such as washing powder,
-              dishwashing liquid, all-purpose cleaner, green bar soap,
-              household bleach, toilet paper, toothpaste, body lotion and
-              sanitary pads. According to the May 2019 Household Affordability
-              Index, these products cost a family of four, R647 per month.</p>
             </div>
           </div>
         </div>
@@ -506,36 +409,23 @@
                     <label for="education-cost" class="lead question">What
                     much do you estimate your domestic worker spends on
                     <strong>sending kids to school</strong>?</label>
-                    <p>Estimate the cost per school aged child:</p><input id=
-                    "education-cost" class="slider" enabled="false" type=
-                    "text" name="education-cost" data-slider-min="0"
-                    data-slider-max="1000" data-slider-step="20" value="100"
-                    data-slider-value="100" data-slider-formater="rand"><br>
+                    <p>Estimate the cost per school aged child:</p>
+                    <input id="education-cost" class="slider" enabled="false"
+                    type="text" name="education-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                   <div class="form-group">
                     <label for="education-cost" class="lead question">How many
                     school-aged children are there in the household?</label>
                     <input id="education-kids" class="slider" enabled="false"
-                    type="text" name="education-kids" data-slider-min="0"
-                    data-slider-max="10" data-slider-step="1" value="2"
-                    data-slider-value="2" data-slider-formater="children"><br>
+                    type="text" name="education-kids"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0"><br>
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Expenses include stationery, uniform, textbooks,
-              and even transportation costs.</p>
-              <p class="note">We assume two individuals in the household are
-              in school.</p>
-              <p class="note">Education expenses include stationery, uniform,
-              textbooks and transportation costs. A reasonable quality primary
-              school, according to the May 2019 Household Affordability Index,
-              charges R1000 per month for school fees per child. However, the
-              median expenditure on education is between R100 and R200 per
-              month per child. This amount excludes other education
-              expenses.</p>
-              <p class="sources"><strong>Source:</strong> May 2019 Household
-              Affordability Index</p>
             </div>
           </div>
         </div>
@@ -561,18 +451,15 @@
                     household spends on
                     <strong>communcation</strong>?</label><br>
                     <p>Estimate the monthly cost per person in the
-                    household:</p><input id="communication-cost" class=
-                    "slider" enabled="false" type="text" name=
-                    "communication-cost" data-slider-min="0" data-slider-max=
-                    "1000" data-slider-step="25" value="100"
-                    data-slider-value="100" data-slider-formater="rand">
+                    household:</p>
+                    <input id="communication-cost" class="slider" enabled="false"
+                    type="text" name="communication-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0">
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Communication, including devices, airtime and
-              data, is essential for staying in touch with family, friends,
-              accessing news and for emergencies.</p>
             </div>
           </div>
         </div>
@@ -597,17 +484,15 @@
                     much do you estimate each household members spends on
                     <strong>entertainment & recreation</strong>?</label><br>
                     <p>Estimate a monthly recreation cost per person in the
-                    household:</p><input id="recreation-cost" class="slider"
-                    enabled="false" type="text" name="recreation-cost"
-                    data-slider-min="0" data-slider-max="1000"
-                    data-slider-step="50" value="100" data-slider-value="100"
-                    data-slider-formater="rand">
+                    household:</p>
+                    <input id="recreation-cost" class="slider" enabled="false"
+                    type="text" name="recreation-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0">
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Recreation time is essential to human dignity
-              and health.</p>
             </div>
           </div>
         </div>
@@ -632,21 +517,13 @@
                     costs</strong> incurred by your domestic worker's
                     household?</label><br>
                     <input id="other-cost" class="slider" enabled="false"
-                    type="text" name="other-cost" data-slider-min="0"
-                    data-slider-max="1000" data-slider-step="50" value="200"
-                    data-slider-value="200" data-slider-formater="rand">
+                    type="text" name="other-cost"
+                    data-slider-min="0" data-slider-max="0"
+                    data-slider-step="1" value="0" data-slider-value="0">
                   </div>
                 </div>
                 <div class="col-sm-3 text-center panel-image"></div>
               </div>
-              <p class="note">Other expenses households spend on include
-              clothing, household items and emergency expenses. Households
-              also have other essential expenses not included in above for
-              example the women interviewed for the Household Affordability
-              Index prioritised certain non-negotiable expenses like burial
-              insurance; repayment of debt and contributions into saving
-              schemes like stokvels. Burial insurance and stokvels cost
-              approximately R250 and R200 per month respectively.</p>
             </div>
           </div>
         </div>
@@ -664,31 +541,43 @@
   <div id="footer">
     <div class="text-center">
       <p id="attribution">Brought to you by&nbsp;&nbsp;<a href=
-      "http://www.openup.org.za" target="_blank"><img height="34" src=
-      "images/logo.svg"></a>.</p>
+      "http://www.openup.org.za" target="_blank"><img height="16" src=
+      "images/openup-logo.png"></a>.</p>
       <p><a href="https://github.com/Code4SA/Domestic-Workers">Fork this on
       GitHub</a></p>
-      <div id="tweetBtn">
-        <a href="https://twitter.com/share" class="twitter-share-button"
-        data-url="http://living-wage.co.za" data-text=
-        "Are you paying your domestic worker a living wage?" data-via=
-        "code4sa" data-hashtags="livingwage">Tweet</a> 
-        <script>
-        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-        </script>
+      <div class="well well-sm" style="display: inline-block;">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+          <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+          <a class="a2a_button_facebook"></a>
+          <a class="a2a_button_x"></a>
+          <a class="a2a_button_whatsapp"></a>
+          <a class="a2a_button_email"></a>
+        </div>
       </div>
     </div>
   </div><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-1.11.2.min.js">
-  </script> 
+  </script>
   <script src=
   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js">
-  </script> 
+  </script>
   <script src="js/bootstrap-select.min.js">
-  </script> 
+  </script>
   <script src="js/bootstrap-slider.js">
-  </script> 
+  </script>
   <script src="js/main.js">
-  </script> 
+  </script>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48399585-9', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+  
 </body>
 </html>

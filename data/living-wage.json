@@ -1,0 +1,143 @@
+{
+  "constants": {
+    "workdays_per_week": 5,
+    "weeks_per_month": 4.33,
+    "workdays_per_month": 21.65,
+    "days_per_month": 30,
+    "sanitation_threshold": 500,
+    "violence_threshold": 900,
+    "transition_time": 200,
+    "output_low": 75,
+    "output_almost": 90
+  },
+  "sliders": {
+    "household-size": {
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "value": 3,
+      "formater": "people",
+      "notes": [
+        "75% of domestic workers are the sole income providers for their families. Furthermore, domestic workers' wages are often used to support, in addition to their nuclear families, parents, grandparents, siblings and other relatives."
+      ],
+      "source": "NIDS 2012"
+    },
+    "food-cost": {
+      "min": 5,
+      "max": 100,
+      "step": 1,
+      "value": 31,
+      "formater": "rand",
+      "notes": [
+        "According to the Jan 2026 Household Affordability Index, the cost of feeding a family of four a basic nutritious diet per month is R3,702; it costs a family of five R4,702; and a family of seven, R6,502."
+      ],
+      "source": "Jan 2026 Household Affordability Index"
+    },
+    "transport-cost": {
+      "min": 5,
+      "max": 50,
+      "step": 1,
+      "value": 25,
+      "formater": "rand",
+      "notes": [
+        "Transport costs are known to be high for domestic workers. The Jan 2026 Household Affordability Index estimates that in a month public transport adds up to R1,680 if a person uses two taxis daily. This is based on transport prices in Pietermaritzburg; the costs in larger cities like Johannesburg and Cape Town are probably much higher."
+      ],
+      "source": "Jan 2026 Household Affordability Index"
+    },
+    "rent-cost": {
+      "min": 0,
+      "max": 4500,
+      "step": 100,
+      "value": 1200,
+      "formater": "rand",
+      "notes": [
+        "Domestic workers have different accommodation arrangements. Some live in staff accommodation on employers' properties, and many rent accommodation in inner-city buildings or backyard accommodation in townships and villages. It is important to note that by law, it is <a href=\"http://www.labour.gov.za/DOL/downloads/legislation/sectoral-determinations/basic-conditions-of-employment/Sectoral%20Determination%207%20-%20Domestic%20Workers.pdf\">unlawful for employers to deduct more than 10% of a domestic worker's wages for accommodation.</a>",
+        "The Socio-Economic Rights Institute estimates that the cheapest accommodation available on the private housing market in Johannesburg costs R1,200 per month in rent (excluding services) for a standard room without a bathroom or toilet."
+      ],
+      "source": "SERI report on the availability of accommodation in the inner-city of Johannesburg"
+    },
+    "utilities-cost": {
+      "min": 0,
+      "max": 2500,
+      "step": 50,
+      "value": 1100,
+      "formater": "rand",
+      "notes": [
+        "According to the May 2019 Household Affordability Index, it costs a household of four R529 for 350 kWh of prepaid electricity and R453 for water (a flat rate for unmetered households)."
+      ],
+      "source": "Jan 2026 Household Affordability Index and Poweroptimal"
+    },
+    "health-cost": {
+      "min": 0,
+      "max": 500,
+      "step": 10,
+      "value": 100,
+      "formater": "rand",
+      "notes": [
+        "Setting up a health budget for a family is very important. In South Africa, according to StatsSA, as many as 45 million South Africans <a href=\"http://www.statssa.gov.za/?p=10548\">fall outside the medical aid net</a> and are largely dependent on public healthcare. Public consultancies cost R95 per visit. Healthcare costs could also be covered through health insurance which can cost <a href=\"http://www.southafrica.info/services/health/healthfaq.htm\">at least R299 per month per person.</a>"
+      ],
+      "source": "<a href=\"http://www.southafrica.info/services/health/healthfaq.htm\" target=\"_blank\">southafrica.info – Health FAQ</a><br><a href=\"http://www.medicalaid.co.za/MedicalAid/MedicalAidfortheLowIncomeEarner.aspx\" target=\"_blank\">medicalaid.co.za – Medical Aid for Low Income Earners</a>"
+    },
+    "hygiene-cost": {
+      "min": 0,
+      "max": 2000,
+      "step": 50,
+      "value": 1000,
+      "formater": "rand",
+      "notes": [
+        "Domestic and personal hygiene products are essential for safe food preparation and overall household health. These include products such as washing powder, dishwashing liquid, all-purpose cleaner, green bar soap, household bleach, toilet paper, toothpaste, body lotion and sanitary pads. According to the July 2025 Household Affordability Index, these products cost a family of four R1,022 per month."
+      ],
+      "source": "July 2025  Household Affordability Index"
+    },
+    "education-cost": {
+      "min": 0,
+      "max": 1000,
+      "step": 20,
+      "value": 100,
+      "formater": "rand",
+      "notes": [
+        "Expenses include stationery, uniform, textbooks, and transportation costs.",
+        "We assume two individuals in the household are in school.",
+        "A reasonable quality primary school, according to the May 2019 Household Affordability Index, charges R1,000 per month for school fees per child. However, the median expenditure on education is between R100 and R200 per month per child, excluding other education expenses."
+      ],
+      "source": "May 2019 Household Affordability Index"
+    },
+    "education-kids": {
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "value": 2,
+      "formater": "children"
+    },
+    "communication-cost": {
+      "min": 0,
+      "max": 2000,
+      "step": 25,
+      "value": 100,
+      "formater": "rand",
+      "notes": [
+        "Communication, including devices, airtime and data, is essential for staying in touch with family, friends, accessing news and for emergencies."
+      ]
+    },
+    "recreation-cost": {
+      "min": 0,
+      "max": 2000,
+      "step": 50,
+      "value": 100,
+      "formater": "rand",
+      "notes": [
+        "Recreation time is essential to human dignity and health."
+      ]
+    },
+    "other-cost": {
+      "min": 0,
+      "max": 2000,
+      "step": 50,
+      "value": 200,
+      "formater": "rand",
+      "notes": [
+        "Other expenses include clothing, household items and emergency costs. Households also have non-negotiable expenses not listed above — for example, the women interviewed for the Household Affordability Index prioritised burial insurance, debt repayment and contributions to saving schemes like stokvels. Burial insurance and stokvels cost approximately R250 and R200 per month respectively."
+      ]
+    }
+  }
+}

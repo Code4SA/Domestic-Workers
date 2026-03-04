@@ -1,14 +1,4 @@
-constants = {
-    workdays_per_week : 5,
-    weeks_per_month : 4.33,
-    workdays_per_month : 5 * 4.33,
-    days_per_month : 30,
-    sanitation_threshold : 500,
-    violence_threshold : 900,
-    transition_time : 200,
-    output_low : 75,     // below this figure salary is too low
-    output_almost : 90  // below this figure salary is almost enough
-}
+var constants = {};
 
 function to_rands(val) {
     if (val != parseInt(val)){
@@ -34,8 +24,6 @@ function calculate_transport(household_size) {
 
 function calculate_food(household_size) {
     var food_cost = $("#food-cost").val();
-    // Account for nutrition programme. Effectively kids do not need 1 meal 5 days a week IF education is provided. 16/21*850 for kids
-    // Suggests that this program covers at least 30% of daily requirements of the students - Department of Education
     var out = Math.round(food_cost * household_size * constants.days_per_month);
 
     $("#food-total").html(to_rands(out));
@@ -234,30 +222,74 @@ function update_output() {
 
         $("#output-percentage").html(output_percentage + "%")
         $("#output-statement").html(output_statement);
-        change_twitter_text("I pay my domestic worker R" + monthly_pay + " which is " + output_percentage + "% of their monthly need, how much do you pay?");
         return true
     }
     return false
 }
 
-function change_twitter_text(txt) {
-    if (typeof(twttr) != "undefined") {
-        // Remove existing iframe
-        $('#tweetBtn iframe').remove();
-        // Generate new markup
-        var tweetBtn = $('<a></a>')
-            .addClass('twitter-share-button')
-            .attr('href', 'http://twitter.com/share')
-            .attr('data-url', 'http://bit.ly/1Gn9ZWS')
-            .attr('data-via', 'code4sa')
-            .attr('data-text', txt)
-            .attr('data-count', 'horizontal')
-            .attr('data-hashtags', 'livingwage');
-        $('#tweetBtn').append(tweetBtn);
-        console.log(twttr)
-        console.log(txt)
-        twttr.widgets.load();
+
+function applySliderConfig(config) {
+    $.each(config, function(id, cfg) {
+        var $el = $('#' + id);
+        if (!$el.length) return;
+
+        $el.attr('data-slider-min', cfg.min)
+           .attr('data-slider-max', cfg.max)
+           .attr('data-slider-step', cfg.step)
+           .attr('data-slider-value', cfg.value)
+           .val(cfg.value);
+
+        if (cfg.formater) $el.attr('data-slider-formater', cfg.formater);
+
+        // Only update notes/source for entries that define them
+        if (cfg.notes || cfg.source) {
+            var $panel = $el.closest('.panel-body');
+            $panel.find('.note, .sources').remove();
+
+            if (cfg.notes) {
+                cfg.notes.forEach(function(note) {
+                    $panel.append('<p class="note">' + note + '</p>');
+                });
+            }
+            if (cfg.source) {
+                $panel.append('<p class="sources"><strong>Source:</strong> ' + cfg.source + '</p>');
+            }
+        }
+    });
+}
+
+function initSliders() {
+    function rand_formater(value) {
+        return value + ' rand';
     }
+
+    function child_formater(value) {
+        if (value == 1)
+            return '1 child';
+        else
+            return value + ' children';
+    }
+
+    function people_formater(value) {
+        if (value == 1)
+            return '1 person';
+        else
+            return value + ' people';
+    }
+
+    $(document).find(".slider").each(function(i) {
+        var tmp_formater = rand_formater;
+        if ($(this).attr("data-slider-formater") == "children")
+            tmp_formater = child_formater;
+        else if ($(this).attr("data-slider-formater") == "people")
+            tmp_formater = people_formater;
+
+        $(this).slider({ tooltip: 'always', formater: tmp_formater })
+            .on('slideStop', function(event) {
+                $(this).attr("data-slider-val", $(this).val())
+                update_output()
+            });
+    });
 }
 
 $(document).ready(function() {
@@ -287,23 +319,8 @@ $(document).ready(function() {
         update_output();
     });
 
-    // update output based on default input values
-    update_output();
-
     // update on click
-    var twitter_bound = false;
     $("#go-button").on('click', function(e) {
-        // attach twitter widget events
-        if (!twitter_bound && typeof(twttr) != "undefined") {
-            twttr.events.bind('click', function(e) {
-                ga('send', 'event', 'twitter', 'click');
-            });
-            twttr.events.bind('tweet', function(e) {
-                ga('send', 'event', 'twitter', 'tweet');
-            });
-            twitter_bound = true;
-        }
-
         e.preventDefault();
         if (update_output())
         {
@@ -315,36 +332,13 @@ $(document).ready(function() {
         update_display('display-assumptions');
     })
 
-    function rand_formater(value) {
-        return value + ' rand';
-    }
-
-    function child_formater(value) {
-        if (value == 1)
-            return '1 child';
-        else
-            return value + ' children';
-    }
-
-    function people_formater(value) {
-        if (value == 1)
-            return '1 person';
-        else
-            return value + ' people';
-    }
-
-    $(this).find(".slider").each(function(i) {
-        var tmp_formater = rand_formater;
-        if ($(this).attr("data-slider-formater") == "children")
-            tmp_formater = child_formater;
-        else if ($(this).attr("data-slider-formater") == "people")
-            tmp_formater = people_formater;
-
-        $(this).slider({ tooltip: 'always', formater: tmp_formater })
-            .on('slideStop', function(event) {
-                $(this).attr("data-slider-val", $(this).val())
-                update_output()
-            });
-    })
+    // Load config from JSON, then initialise sliders and calculate
+    $.getJSON('data/living-wage.json', function(data) {
+        $.extend(constants, data.constants);
+        applySliderConfig(data.sliders);
+    }).always(function() {
+        initSliders();
+        update_output();
+    });
 });
 
