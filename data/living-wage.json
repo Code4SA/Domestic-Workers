@@ -11,6 +11,13 @@
     "output_almost": 90
   },
   "sliders": {
+    "pay-amount": {
+      "min": 50,
+      "max": 10000,
+      "step": 50,
+      "value": 1000,
+      "formater": "rand"
+    },
     "household-size": {
       "min": 1,
       "max": 20,
