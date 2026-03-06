@@ -13,7 +13,7 @@
   "sliders": {
     "pay-amount": {
       "min": 50,
-      "max": 10000,
+      "max": 15000,
       "step": 50,
       "value": 1000,
       "formater": "rand"
